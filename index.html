@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Email Address Breach Detection and Analysis</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="assets/css/style.css" rel="stylesheet">
+  </head>
+
+  <body class="text-center">
+      <div class="container" id="app">
+          <div class="row">
+              <div class="col-md-12">
+                    
+                            <p>Check to see if an email address is in any hacked data from known breaches. Get a summary of what specific information may be at risk, unique personal identity alerts, a relative exposure rating and more. Results are shown immediately - no verification, upgrades or extra steps required. Email addresses are not saved after analysis.</p>
+                            <div class="form-group">
+                                    <label for="inputEmail" class="sr-only">Check This Email Address</label>
+                                    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus v-model="email">
+                            </div>
+                           
+                            <button class="btn btn-lg btn-primary btn-block" @click="checkEmail()" >Check</button>
+<br><br><br>
+                            <table class="table table-dark" v-if="foundData">
+                                    <thead>
+                                      <tr>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Domain</th>
+                                        <th scope="col">Date</th>
+                                        <th scope="col">Description</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr v-for="item in data">
+                                        <th scope="row">{{item.Name}}</th>
+                                        <td>{{item.Domain}}</td>
+                                        <td>{{item.BreachDate}}</td>
+                                        <td><p v-html="item.Description"></p></td>
+                                      </tr>
+
+                                    </tbody>
+                                  </table>
+                            <p class="mt-5 mb-3 text-muted">&copy; Mohamed Ait Miloud 2018</p>
+                         
+              </div>
+          </div>
+      </div>
+
+
+
+
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/vue.js"></script>
+    <script src="assets/js/axios.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
